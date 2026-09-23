@@ -10,7 +10,7 @@
 /* Declare apart of mcuboot's logging group*/
 BOOT_LOG_MODULE_DECLARE(mcuboot);
 
-// Overwrite weak function
+
 fih_ret boot_image_jump_hook(struct boot_rsp *response)
 {
 	int status;
