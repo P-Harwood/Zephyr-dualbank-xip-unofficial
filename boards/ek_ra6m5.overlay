@@ -1,0 +1,7 @@
+#include "../dualbank_flash.dtsi"
+
+/ {
+	chosen {
+		zephyr,code-partition = &slot0_partition;
+	};
+};
