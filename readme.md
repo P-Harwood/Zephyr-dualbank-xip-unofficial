@@ -1,17 +1,20 @@
+This project is an unofficial example of dual bank XIP for the RA6M5 using Zephyr. 
+
 This tutorial uses Mcumgr cli for flashing the image to the device
 
-Dualsel register set in mcuboot_dualbank/CMakeLists.txt
+    - https://github.com/apache/mynewt-mcumgr-cli
 
+Alterations were applied to:
 
-alterations were applied to 
-    Zephyr v4.4.0-16332-g55f132b58cd
-    mcuboot v2.4.0-150-gaa32eaaa (Only patch required on this version is the RA6M5 erase size patch)
+    - Zephyr v4.4.0-16332-g55f132b58cd
+    - mcuboot v2.4.0-150-gaa32eaaa (Only patch required on this version is the RA6M5 erase size patch)
 
 
 Requires alterations to upstream Drivers (in commit format for readability):
     https://github.com/renesas/zephyr/commit/d006070918b364a0bc051111f89a93b31faa3b77
 
 Example build command: 
+
     west build -b ek_ra6m5 -d build\v1 --sysbuild . -p always
 
 To upload firmware use the Renesas Flash programmer. The following generated files must be flashed:
