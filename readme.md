@@ -31,7 +31,7 @@ Then run mcumgr inside a terminal:
 
     mcumgr --conntype serial --connstring "COM5,baud=115200" image upload build\v2\db_xip\zephyr\zephyr.signed.bin
 
-The example application has a uart console. Access this with teraterm.  Commands:
+The example application has a UART console.  Connect with UART via TeraTerm and execute the commands:
 
     dualboot        - list commands
     dualboot list   - provides details on the images loaded on the device
