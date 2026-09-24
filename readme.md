@@ -11,7 +11,7 @@ Alterations were applied to:
 
 
 Requires alterations to upstream Drivers (in commit format for readability):
-    - https://github.com/renesas/zephyr/commit/d006070918b364a0bc051111f89a93b31faa3b77
+    - [https://github.com/renesas/zephyr/commit/d006070918b364a0bc051111f89a93b31faa3b77](https://github.com/renesas/zephyr/compare/main...P-Harwood:zephyr_Exp:ra-dualbank-v2)
 
 Example build command: 
 
