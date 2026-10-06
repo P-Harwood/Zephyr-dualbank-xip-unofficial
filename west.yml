@@ -1,0 +1,24 @@
+manifest:
+  remotes:
+    - name: P-Harwood
+      url-base: https://github.com/P-Harwood
+
+  projects:
+    - name: zephyr
+      remote: P-Harwood
+      repo-path: zephyr_Exp
+      revision: dualbank-v2.1
+      clone-depth: 1
+      import:
+        name-allowlist:
+          - cmsis_6
+          - hal_renesas
+
+    - name: mcuboot
+      remote: P-Harwood
+      repo-path: mcuboot
+      revision: ra6m5-erase-size-v1
+      path: bootloader/mcuboot
+
+  self:
+    path: applications/XMO_XIP
