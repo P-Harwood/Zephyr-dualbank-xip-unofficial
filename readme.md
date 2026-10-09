@@ -1,6 +1,6 @@
-This project is an unofficial example of dual bank XIP for the RA6M5 using Zephyr. 
+# Dual bank XIP for the RA6M5 using Zephyr. 
 
-Install Steps (Start in desired install directory):
+## Install Steps (Start in desired install directory):
 
 ```    
 python -m venv .venv
@@ -13,8 +13,9 @@ west update
 west packages pip --install
 west zephyr-export
 ```
+## === === Commands === ===
 
-Example build commands to build a batch of 5 test scripts: 
+#### Build commands to build a batch of 5 test scripts: 
 (DCONFIG_MCUBOOT_IMGTOOL_SIGN_VERSION has higher priority than VERSION)
 
 ```
@@ -26,7 +27,7 @@ west build -b ek_ra6m5 -d build\v5 --sysbuild . -p always -- -DCONFIG_MCUBOOT_IM
 ```
 
 
-Erase Board Command set:
+#### Erase Board Command set:
 
 ```
 rfp-cli.exe -d RA -t jlink -if swd -erase-chip 
@@ -34,7 +35,10 @@ rfp-cli.exe -d RA -t jlink -if swd -pv OFS_Alter_hexs/linear.hex
 rfp-cli.exe -d RA -t jlink -if swd -pv OFS_Alter_hexs/BankSwpDefault.hex
 ```
 
-=== === rfp cli commands === ===
+
+
+
+## === === RFP cli commands === ===
 To flash a file with rfp to the board, execute this command with the following file(s)
 
     `rfp-cli.exe -d RA -t jlink -if swd -pv `
@@ -67,7 +71,10 @@ For Image 1
 
 
 
-=== === JLink flashing commands === ===
+
+
+
+## === === JLink flashing commands === ===
 
 Launch Jlink CLI:
 
