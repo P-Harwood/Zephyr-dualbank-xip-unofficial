@@ -17,5 +17,5 @@ void blinky_thread_entry(void *p1, void *p2, void *p3)
         k_msleep(2000);
     }
 }
-K_THREAD_DEFINE(blinky_tid, 512, blinky_thread_entry,
+K_THREAD_DEFINE(blinky_tid, 1024, blinky_thread_entry,
                 NULL, NULL, NULL, 7, 0, 0);

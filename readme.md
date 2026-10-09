@@ -9,30 +9,38 @@ Alterations were applied to:
     - Zephyr v4.4.0-16332-g55f132b58cd
     - mcuboot v2.4.0-150-gaa32eaaa (Only patch required on this version is the RA6M5 erase size patch)
 
-
-Requires alterations to upstream Drivers (in commit format for readability):
-    - https://github.com/renesas/zephyr/commit/d006070918b364a0bc051111f89a93b31faa3b77
-
 Example build command: 
-
     west build -b ek_ra6m5 -d build\v1 --sysbuild . -p always
 
-To upload firmware use the Renesas Flash programmer. The following generated files must be flashed:
 
-    \build\v1\db_xip\zephyr\zephyr.signed.confirmed.hex
-    \build\v1\mcuboot\zephyr\zephyr.hex
-    \build\v1\mcuboot\zephyr\zephyr_bank1_dual.hex
+Erase Board Command set:
+rfp-cli -d RA -t jlink -if swd -erase-chip 
+rfp-cli -d RA -t jlink -if swd -pv OFS_Alter_hexs/linear.hex
+rfp-cli -d RA -t jlink -if swd -pv OFS_Alter_hexs/BankSwpDefault.hex
 
-To flash a new firmware into second slot, update VERSION to a newer version number, then build a new image:
 
-    west build -b ek_ra6m5 -d build\v2 --sysbuild . -p always
 
-Then run mcumgr inside a terminal:
 
-    mcumgr --conntype serial --connstring "COM5,baud=115200" image upload build\v2\db_xip\zephyr\zephyr.signed.bin
+=== === JLink flashing commands === ===
 
-The example application has a UART console.  Connect with UART via TeraTerm and execute the commands:
+JLink.exe -device R7FA6M5BH -if SWD -speed 4000 -autoconnect 1
 
-    dualboot        - list commands
-    dualboot list   - provides details on the images loaded on the device
-    dualboot swap   - swap the banks and restart the device
+Write both bootloaders and application images
+    loadfile build\v2\mcuboot\zephyr\mcuboot_bank1_jlink.hex
+    loadfile build\v2\db_xip\zephyr\app_bank1_jlink.hex
+    loadfile build\v1\db_xip\zephyr\zephyr.signed.hex
+    loadfile build\v1\mcuboot\zephyr\mcuboot_bank0.hex
+    q
+
+Write both bootloaders and Application Image 1
+    loadfile build\v1\db_xip\zephyr\app_bank0.hex
+    loadfile build\v1\mcuboot\zephyr\mcuboot_bank1_jlink.hex
+    loadfile build\v1\mcuboot\zephyr\mcuboot_bank0.hex
+    q
+
+Write Application Image 2 
+    h
+    loadfile OFS_Alter_hexs/linear.hex
+    loadfile build\v3\db_xip\zephyr\app_bank1_jlink.hex
+    loadfile OFS_Alter_hexs/dual.hex
+    g
