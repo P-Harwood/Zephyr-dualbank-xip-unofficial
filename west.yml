@@ -21,4 +21,4 @@ manifest:
       path: bootloader/mcuboot
 
   self:
-    path: applications/XMO_XIP
+    path: applications/db_xip
