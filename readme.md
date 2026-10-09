@@ -19,7 +19,7 @@ rfp-cli -d RA -t jlink -if swd -pv OFS_Alter_hexs/linear.hex
 rfp-cli -d RA -t jlink -if swd -pv OFS_Alter_hexs/BankSwpDefault.hex
 
 
-
+rfp-cli -d RA -t jlink -if swd -pv build\v1\mcuboot\zephyr\mcuboot_bank0.hex build\v2\mcuboot\zephyr\mcuboot_bank1_jlink.hex build\v2\db_xip\zephyr\app_bank1_jlink.hex build\v1\db_xip\zephyr\zephyr.signed.hex 
 
 === === JLink flashing commands === ===
 
@@ -38,7 +38,7 @@ Write both bootloaders and Application Image 1
     loadfile build\v1\mcuboot\zephyr\mcuboot_bank0.hex
     q
 
-Write Application Image 2 
+Write Application Image 2 to a running application
     h
     loadfile OFS_Alter_hexs/linear.hex
     loadfile build\v3\db_xip\zephyr\app_bank1_jlink.hex

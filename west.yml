@@ -17,7 +17,7 @@ manifest:
     - name: mcuboot
       remote: P-Harwood
       repo-path: mcuboot
-      revision: ra6m5-erase-size-v1
+      revision: ra6m5-erase-size-v2
       path: bootloader/mcuboot
 
   self:
