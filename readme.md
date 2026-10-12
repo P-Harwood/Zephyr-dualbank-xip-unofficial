@@ -41,33 +41,33 @@ rfp-cli.exe -d RA -t jlink -if swd -pv OFS_Alter_hexs/BankSwpDefault.hex
 ## === === RFP cli commands === ===
 To flash a file with rfp to the board, execute this command with the following file(s)
 
-    `rfp-cli.exe -d RA -t jlink -if swd -pv `
+    rfp-cli.exe -d RA -t jlink -if swd -pv 
 
 
 Before writing dual bank applications, ensure that the board is in dualbank mode first. The following command puts it in dual
 bank and then sets BankSwp to standard. Flashing the application while the board is in linear mode will cause errors.
 
-    `rfp-cli.exe -d RA -t jlink -if swd -pv OFS_Alter_hexs/dual.hex OFS_Alter_hexs/BankSwpDefault.hex`
+    rfp-cli.exe -d RA -t jlink -if swd -pv OFS_Alter_hexs/dual.hex OFS_Alter_hexs/BankSwpDefault.hex
 
 
 e.g. for Both applications and both bootloaders:
 
-`rfp-cli.exe -d RA -t jlink -if swd -pv build\v2\mcuboot\zephyr\mcuboot_bank1_rfp.hex build\v2\db_xip\zephyr\app_bank1_rfp.hex build\v1\db_xip\zephyr\zephyr.signed.hex build\v1\mcuboot\zephyr\mcuboot_bank0.hex`
+    rfp-cli.exe -d RA -t jlink -if swd -pv build\v2\mcuboot\zephyr\mcuboot_bank1_rfp.hex build\v2\db_xip\zephyr\app_bank1_rfp.hex build\v1\db_xip\zephyr\zephyr.signed.hex build\v1\mcuboot\zephyr\mcuboot_bank0.hex
 
 
 For just image 0 and boot loader 0
 
- `rfp-cli.exe -d RA -t jlink -if swd -pv build\v1\mcuboot\zephyr\mcuboot_bank0.hex build\v1\db_xip\zephyr\zephyr.signed.hex`
+     rfp-cli.exe -d RA -t jlink -if swd -pv build\v1\mcuboot\zephyr\mcuboot_bank0.hex build\v1\db_xip\zephyr\zephyr.signed.hex
 
 
 For both bootloaders and image 0
 
-`rfp-cli.exe -d RA -t jlink -if swd -pv build\v1\mcuboot\zephyr\mcuboot_bank0.hex build\v2\mcuboot\zephyr\mcuboot_bank1_rfp.hex build\v1\db_xip\zephyr\zephyr.signed.hex`
+    rfp-cli.exe -d RA -t jlink -if swd -pv build\v1\mcuboot\zephyr\mcuboot_bank0.hex build\v2\mcuboot\zephyr\mcuboot_bank1_rfp.hex build\v1\db_xip\zephyr\zephyr.signed.hex
 
 
 For Image 1
 
- `rfp-cli.exe -d RA -t jlink -if swd -pv build\v2\db_xip\zephyr\app_bank1_rfp.hex`
+     rfp-cli.exe -d RA -t jlink -if swd -pv build\v2\db_xip\zephyr\app_bank1_rfp.hex
 
 
 
@@ -78,7 +78,7 @@ For Image 1
 
 Launch Jlink CLI:
 
-`JLink.exe -device R7FA6M5BH -if SWD -speed 4000 -autoconnect 1`
+    JLink.exe -device R7FA6M5BH -if SWD -speed 4000 -autoconnect 1
 
 
 Write both bootloaders and application images
