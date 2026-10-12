@@ -11,6 +11,7 @@ pip install west
 west init -m https://github.com/P-Harwood/Zephyr-dualbank-xip-unofficial --mr main .
 west update
 west packages pip --install
+west sdk install -t arm-zephyr-eabi
 west zephyr-export
 ```
 ## === === Commands === ===
