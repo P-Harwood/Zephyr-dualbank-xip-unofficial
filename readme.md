@@ -3,7 +3,7 @@
 ## Install Steps (Start in desired install directory):
 
 ```    
-python -m venv .venv
+py -3.12 -m venv .venv
 cd .venv\Scripts
 activate.bat
 cd ../../
