@@ -19,6 +19,8 @@ west zephyr-export
 #### Build commands to build a batch of 5 test scripts: 
 (DCONFIG_MCUBOOT_IMGTOOL_SIGN_VERSION has higher priority than VERSION)
 
+Run these build commands in applications/db_xip, with the venv activated.
+
 ```
 west build -b ek_ra6m5 -d build\v1 --sysbuild . -p always -- -DCONFIG_MCUBOOT_IMGTOOL_SIGN_VERSION=\"1.1.0\" 
 west build -b ek_ra6m5 -d build\v2 --sysbuild . -p always -- -DCONFIG_MCUBOOT_IMGTOOL_SIGN_VERSION=\"1.2.0\" 
