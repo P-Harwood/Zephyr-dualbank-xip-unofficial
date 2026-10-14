@@ -1,5 +1,9 @@
 # Dual bank XIP for the RA6M5 using Zephyr. 
 
+## Wiring
+
+- UART connector to P411 (Board's Tx) and P410 (Board's Rx) for interacting with the board
+
 ## Install Steps (Start in desired install directory):
 
 ```    
