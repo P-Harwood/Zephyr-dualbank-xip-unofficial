@@ -8,7 +8,8 @@ target_sources(app PRIVATE
     src/menu.c
     src/xmodem.c
     src/downloader_thread_entry.c
-    src/blinky_thread_entry.c)
+    src/blinky_thread_entry.c
+    src/interrupt_maker.c)
 
 if(CONFIG_BOOTLOADER_MCUBOOT)
   set(signed_hex ${ZEPHYR_BINARY_DIR}/zephyr.signed.hex)

@@ -5,6 +5,7 @@
 #include <zephyr/dfu/mcuboot.h>
 #include "xmodem.h"
 #include "comms.h"
+#include "interrupt_maker.h"
 // Called by menu.c to download and program the new incoming image
 unsigned char XmodemDownloadAndProgramFlash(void)
 {
@@ -206,7 +207,17 @@ XM_PROG_FAIL        -   Failed to program one or more bytes of the Flash memory
                         /* flash_img streams to the secondary slot and tracks the write
                            offset, so there is no manual address and no interrupt juggling
                            (the flash driver owns read-while-write). */
+
+                        ended_flash_write = false;
+                        started_flash_write = true;
+                        start_flash_write_alarm();
+
                         err = flash_img_buffered_write(&flash_ctx, &RxByteBuffer[3], 128, false);
+
+                        ended_flash_write = true;
+                        stop_flash_write_alarm();
+
+
 
 
                         if(0 == err)

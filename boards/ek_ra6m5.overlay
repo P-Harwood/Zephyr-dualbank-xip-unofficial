@@ -5,3 +5,13 @@
 		zephyr,code-partition = &slot0_partition;
 	};
 };
+&agt0 {
+	interrupts = <86 1>, <87 1>;
+	renesas,count-source = "AGT_CLOCK_PCLKB";
+	interrupt-names = "agti", "agtcmai";
+	status = "okay";
+
+	counter0: counter {
+		status = "okay";
+	};
+};

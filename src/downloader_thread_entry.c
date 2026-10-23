@@ -7,6 +7,7 @@
 #include "comms.h"
 #include "menu.h"
 #include "header.h"
+#include "interrupt_maker.h"
 
 // MCUBoot magic number to be placed in the header of the image
 #define IMAGE_MAGIC 0x96f3b83d  
@@ -160,6 +161,8 @@ void dual_bank_info(void)
 	sprintf((char *)tx_str, "Vector table (VTOR):  0x%08x\n", SCB->VTOR);
 	comms_send(tx_str, strlen((char *)tx_str));
 
+	printk("Interrupts during flash writes: %d, largest delay was %d us late\n",
+	interrupts_during_write, most_late);
 
 	print_slot("Primary Image Slot", PARTITION_ID(slot0_partition), PARTITION_OFFSET(slot0_partition));
 	
