@@ -93,7 +93,7 @@ Write both bootloaders and application images
 ```
 loadfile build\v2\mcuboot\zephyr\mcuboot_bank1_jlink.hex
 loadfile build\v2\db_xip\zephyr\app_bank1_jlink.hex
-loadfile build\v1\db_xip\zephyr\zephyr.signed.hex
+loadfile build\v1\db_xip\zephyr\app_bank0.hex
 loadfile build\v1\mcuboot\zephyr\mcuboot_bank0.hex
 q
 ```
